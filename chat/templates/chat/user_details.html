@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="mb-6 text-2xl">User Profile</1>
+    {{ user.name }}
+    <hr class="my-6">
+
+    <div class="mt-8">
+        <h2 class="mb-4 text-lg">Rooms</h2>
+       {% include 'chat/partials/room_list.html' %}
+        
+    </div>
+
+{% endblock %}

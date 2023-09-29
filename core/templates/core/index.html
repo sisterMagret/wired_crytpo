@@ -1,0 +1,879 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}">
+  <title> Orion </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="{% static 'images/hero-bg.png' %}" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'core:index' %}">
+            <img style="width:300px" src="{% static 'images/logo2.svg' %}" alt="">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'core:index' %}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:about' %}"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:services' %}">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:why' %}">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'core:team' %}">Team</a>
+              </li>
+              <li class="nav-item">
+                
+                {% if not request.user%}
+                <a class="nav-link" href="{% url 'chat:add_user' %}"><i class="fa fa-user" aria-hidden="true"></i>Register</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'chat:admin' %}" class="nav-link">Admin</a>
+                {% endif %}
+              </li>
+              <li class="nav-item">
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'core:profile' %}" class="nav-link">Profile</a>
+                {% endif %}
+                  </li>
+              <li class="nav-item">
+                {% if not request.user%}
+                <a class="nav-link" href="{% url 'account:login' %}"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                {% endif %}
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  <!-- slider section -->
+  <section class="slider_section ">
+    <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <div class="detail-box">
+                  <h1>
+                    precious<br>
+                    Metals
+                  </h1>
+                  <p>
+                    Diversify your portfolio by investing in physically-backed precious metals, which has been a timeless symbol of wealth and a reliable investment for centuries. Its enduring value makes it a popular choice for investors looking to diversify their portfolios and preserve their wealth
+                  </p>
+                <div class="btn-box">
+                    <a href="" class="btn1">
+                      Read More
+                    </a>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="img-box">
+                  <img src="{% static 'images/slider-img-gold.png' %}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item ">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <div class="detail-box">
+                  <h1>
+                    Crypto <br>
+                    Currency
+                  </h1>
+                  <p>
+                    Buy, sell & swap the cryptocurrencies you want anytime, anywhere.
+                  </p>
+                  <div class="btn-box">
+                    <a href="" class="btn1">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="img-box">
+                  <img src="{% static 'images/slider-img.png' %}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carousel-item ">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <div class="detail-box">
+                  <h1>
+                    STOCK
+                  </h1>
+                  <p>
+                    Invest in fractions of your favourite companies without committing to a whole share.
+                  </p>
+                  <div class="btn-box">
+                    <a href="" class="btn1">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="img-box">
+                  <img src="{% static 'images/profit01.png' %}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carousel-item">
+          <div class="container ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <div class="detail-box">
+                  <h1>
+                    Agricultural &<br>
+                    Commodities
+                  </h1>
+                  <p>
+                    Investing in agriculture can be a lucrative and rewarding opportunity. Agriculture is a fundamental industry that provides food for the world's growing population and offers various avenues for investment
+                  </p>
+                  <div class="btn-box">
+                    <a href="" class="btn1">
+                      Read More
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="img-box">
+                  <img src="{% static 'images/slider-img5.png' %}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+        <li data-target="#customCarousel1" data-slide-to="1"></li>
+        <li data-target="#customCarousel1" data-slide-to="2"></li>
+      </ol>
+    </div>
+
+  </section>
+  <!-- end slider section -->
+</div>
+  <!-- service section -->
+        
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Our <span>Services</span>
+          </h2>
+          <p>
+            Here is an outline of some of our services, with more to come
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s1.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Currency Wallet
+                </h5>
+                <p>
+                  Create multiple wallets and fund your wallet with different currencies
+                </p>
+                <a href="#">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Security
+                </h5>
+                <p>
+                  Funds secured in offline wallets.
+                  Fully compliant with European data,
+                  IT and money laundering security standards
+                </p>
+                <a href="#">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/s3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Expert Support
+                </h5>
+                <p>
+                  With our top norch support team always avaliable for your assistance, hit the chat bubble below for more information
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    <!-- end service section -->
+
+    <!-- start subcription plan section -->
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Subscription <span>Plans</span>
+          </h2>
+          <p>
+            Avaliable subcription plans. $100.00 - $1,000.00 bounus on subcription 
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/Smart-Investment-PNG-Image.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Silver
+                </h5>
+                <p>
+                  Basic plan for everyone. You can start your investment for as low as $200.00 upto $5,000.00
+                </p>
+                <p>
+                 Daily return of +0.30%
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/w3.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Gold
+                </h5>
+                <p>
+                  Upgrade your plan for better benefits. Invest from $5,000.00 upto $20,000.00
+                </p>
+                <p>
+                  Daily return of +0.39%
+                 </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/w2.png' %}" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Diamond
+                </h5>
+                <p>
+                  <p>
+                    Become a diamon investment to enjoy high interest rate and other exclusive offers. Invest from $20,000.00+
+                  </p>
+                  <p>
+                    Daily return of +0.53%
+                   </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end subcription plan section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="heading_container heading_center">
+        <h2>
+          About <span>Us</span>
+        </h2>
+        <p>
+          Investing Now available to everyone.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/Investment-PNG-Free-Image.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <h3>
+              We Are Orion
+            </h3>
+            <p>
+              At Orion, we see investing differently. Today’s financial system is complex, exclusive and expensive - making it hard for the typical person to start investing. 
+              So, we’re building a platform without digital walls and complex barriers. A platform that empowers you to see new possibilities for your money - and helps make them a reality.
+            </p>
+            <p>
+              Orion was founded in 2014 in Vienna, Austria with the aim of making investing accessible for everyone. Our goals since day one was to reimagine what it means to invest, by making simple, easy-to-use financial products for everyone.
+
+              Now, 8 years later, and with more than 700 team members and 4 million users, we're one of the most successful fintechs in Europe. With a PSD2 payment service provider licence and E-Money licence, state-of-the-art security and streamlined user experience, we make it possible for both first-time investors and seasoned experts to invest in what they believe in. 
+
+              Our user-friendly, trade-everything platform empowers you to invest in the stocks, cryptocurrencies, metals, commodities and crypto indices you want — with any amount of money.
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- why section -->
+
+  <section class="why_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Why Choose <span>Us</span>
+        </h2>
+      </div>
+      <div class="why_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w1.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Expert Management
+            </h5>
+            <p>
+              Orion is backed by a team of world-class experts and the best technology talent. To stay at the forefront of innovation, we're always working on strengthening our position as Europe’s leading retail investment platform.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w2.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Secure Investment
+            </h5>
+            <p>
+              Orion GmbH is a registered digital assets service provider with the Austrian Financial Market Authority (FMA) under FM-GwG and with the French Autorité des marchés financiers (AMF) under PACTE law. The Orion Payments GmbH holds a PSD2 licence. 
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w3.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Instant Trading
+            </h5>
+            <p>
+              At Orion, we see investing differently. Today’s financial system is complex, exclusive and expensive - making it hard for the typical person to start investing. 
+
+So, we’re building a platform without digital walls and complex barriers. A platform that empowers you to see new possibilities for your money - and helps make them a reality.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/w4.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Happy Customers
+            </h5>
+            <p>
+              Our user-friendly, trade-everything platform empowers you to invest in the stocks,
+              cryptocurrencies and metals you want, with any amount of money.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          Read More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end why section -->
+
+  <!-- team section -->
+  <section class="team_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container heading_center">
+        <h2 class="">
+          Our <span> Team</span>
+        </h2>
+      </div>
+
+      <div class="team_container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/jim.png' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Jim Ware, CFA
+                </h5>
+                <p>
+                  Finance Manager
+                </p>
+              </div>
+              {% comment %} <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div> {% endcomment %}
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/marketer.jpeg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Jordan Sen 
+                </h5>
+                <p>
+                  Marketing Head
+                </p>
+              </div>
+              {% comment %} <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div> {% endcomment %}
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/trummer-1.jpg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                Christian Trummer
+                </h5>
+                <p>
+                  Advisor
+                </p>
+              </div>
+              {% comment %} <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div> {% endcomment %}
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <div class="box ">
+              <div class="img-box">
+                <img src="{% static 'images/sara.jpeg' %}" class="img1" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Sara Brown 
+                </h5>
+                <p>
+                  Director Marketing
+                </p>
+              </div>
+              {% comment %} <div class="social_box">
+                <a href="#">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="#">
+                  <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
+              </div> {% endcomment %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end team section -->
+
+
+   <!-- client section -->
+
+   <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center psudo_white_primary mb_45">
+        <h2>
+          What says our <span>Customers</span>
+        </h2>
+      </div>
+      <div class="carousel-wrap ">
+        <div class="owl-carousel client_owl-carousel">
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img style="width:107px;height:101px" src="{% static 'images/client5.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Russel Brand
+                    </h6>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  As a seasoned investor, I'm always on the lookout for reliable platforms to diversify my portfolio. I stumbled upon this investment website and decided to give it a try. To my delight, the tools and research resources available exceeded my expectations. The real-time market data and in-depth analytics helped me make strategic investment choices. The customer support team was also responsive and helpful whenever I had questions. Thanks to this website, my investments are on track to reach my financial goals sooner than I had anticipated. </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img style="width:107px;height:101px" src="{% static 'images/client6.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Dan Bongino
+                    </h6>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  've been using this investment website for a while now, and it has truly simplified my financial journey. The intuitive interface made it easy for me to start investing, even though I had limited prior knowledge. The educational content and market insights provided a solid foundation for my decisions. What I appreciate most is the transparency and low fees, which allow me to keep more of my returns. Thanks to this website, I've been able to grow my investments steadily, and I look forward to a more secure financial future.</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img style="width:107px;height:101px" src="{% static 'images/client3.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Kimberly Guilfoyle
+                    </h6>
+                 
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  I couldn't be happier with my experience on this investment website. From the moment I signed up, I felt like I was in capable hands. The user-friendly interface made it easy for me to explore different investment options and make informed decisions. The educational resources provided were invaluable in helping me understand the market better. Thanks to this platform, my investments have been performing exceptionally well, and I've seen substantial growth in my portfolio. I highly recommend this website to anyone looking to secure their financial future! </p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="box">
+              <div class="img-box">
+                <img style="width:107px;height:101px" src="{% static 'images/client4.jpg' %}" alt="" class="box-img">
+              </div>
+              <div class="detail-box">
+                <div class="client_id">
+                  <div class="client_info">
+                    <h6>
+                      Ryan Reynolds
+                    </h6>
+                  </div>
+                  <i class="fa fa-quote-left" aria-hidden="true"></i>
+                </div>
+                <p>
+                  I was initially hesitant about online investing, but this website changed my perspective entirely. The platform is not only secure but also very user-friendly. It guided me through the entire investment process, from creating an account to building a diversified portfolio. The variety of investment options allowed me to tailor my strategy to my risk tolerance and financial goals. I'm pleased to say that my investments have been performing well, and I appreciate the peace of mind that comes with knowing my money is in capable hands. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +1(615) 398-0512
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  1joncruise@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="#">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_detail">
+            <h4>
+              Info
+            </h4>
+            <p>
+              Orion is a digital assets platform based in Vienna, Austria. It was founded in 2014 has since grown to become one of the leading digital asset platforms in Europe. Orion is known for its user-friendly interface, wide range of supported cryptocurrencies, and various investment options
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-2 mx-auto info_col">
+          <div class="info_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="info_links">
+              <a class="active" href="{% url 'core:index' %}">
+                Home
+              </a>
+              <a class="" href="{% url 'core:about' %}">
+                About
+              </a>
+              <a class="" href="{% url 'core:services' %}">
+                Services
+              </a>
+              <a class="" href="{% url 'core:why' %}">
+                Why Us
+              </a>
+              <a class="" href="{% url 'core:team' %}">
+                Team
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col ">
+          <h4>
+            Subscribe
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+            <button type="submit">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include 'chat/partials/chat_bubble.html' %}
+  <!-- end info section -->
+  <!-- footer section -->
+<section class="footer_section">
+    
+    <div class="container">
+      <p>
+       <span id="displayYear"></span> Copyright  &copy; - Orion
+      
+      </p>
+    </div>
+  </section> 
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
